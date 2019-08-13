@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Bonusbox_Bonusbox1",
+    "type": "magento-module",
+    "license": "MIT-License",
+    "homepage": "",
+    "description": "Set up your loyalty program in Facebook, reward referrals and win new customers!",
+    "authors": [
+    {
+        "name": "Jan Riethmayer",
+        "email": "jan@bonusbox.me"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package>
+    <name>Bonusbox_Bonusbox1</name>
+    <version>1.1.5</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/MIT">MIT License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Set up your loyalty program in Facebook, reward referrals and win new customers!</summary>
+    <description>Bonusbox enables merchants to win and retain customers in Facebook. Reward customers with bonusbox credits for referrals, comments and for repeat purchases!
+
+For further information, check out our homepage www.bonusbox.me.</description>
+    <notes>* PHPCS and PHPMD checks
+* Compatibility of Magento CE 1.7
+* Compatibility of Magento EE 1.12</notes>
+    <authors>
+        <author>
+            <name>Jan Riethmayer</name>
+            <user>jan_bonusbox</user>
+            <email>jan@bonusbox.me</email>
+        </author>
+    </authors>
+    <date>2012-07-04</date>
+    <time>14:02:27</time>
+    <contents><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="bonusbox.css"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="bonusbox.xml"/></dir><dir name="template"><dir name="bonusbox"><dir name="checkout"><file name="success.phtml"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Bonusbox_Bonusbox.xml"/></dir></target><target name="magecommunity"><dir name="Bonusbox"><dir name="Bonusbox"><dir name="controllers"><file name="TestController.php"/></dir><dir name="etc"><file name="system.xml"/><file name="config.xml"/><file name="adminhtml.xml"/></dir><dir name="Model"><dir name="Client"><file name="Badges.php"/><file name="Coupons.php"/><file name="Successpages.php"/></dir><dir name="SalesRule"><dir name="Rule"><dir name="Condition"><file name="Combine.php"/></dir></dir><dir name="Condition"><file name="Bonusbox.php"/></dir><file name="Validator.php"/></dir><dir name="Sales"><file name="Observer.php"/></dir><file name="Client.php"/><file name="Session.php"/></dir><dir name="Helper"><file name="Data.php"/><file name="Successpage.php"/></dir><dir name="Block"><dir name="Checkout"><file name="Success.php"/></dir></dir><file name="Exception.php"/></dir></dir></target><target name="magelocale"><dir name="de_DE"><file name="bonusbox_admin.csv"/></dir></target></contents>
+    <compatible/>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.2.0</min>
+                <max>6.0.0</max>
+            </php>
+        </required>
+    </dependencies>
+</package>

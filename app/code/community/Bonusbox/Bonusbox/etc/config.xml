@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category  Bonusbox
+ * @package   Bonusbox_Bonusbox
+ * @author    symmetrics - a CGI Group brand <info@symmetrics.de>
+ * @author    Ngoc Anh Doan <ngoc-anh.doan@cgi.com>
+ * @copyright 2011-2012 BonusBox GmbH
+ * @license   http://www.opensource.org/licenses/mit-license.php  The MIT License (MIT)
+ * @link      http://bonusbox.me
+ * @link      http://github.com/symmetrics/bonusbox_magento
+ */
+-->
+<config>
+    <modules>
+        <bonusbox_bonusbox>
+            <version>1.1.5</version>	
+        </bonusbox_bonusbox>
+    </modules>
+    <global>
+        <models>
+            <bonusbox>
+                <class>Bonusbox_Bonusbox_Model</class>		
+            </bonusbox>
+            <salesrule>
+                <rewrite>
+                    <validator>Bonusbox_Bonusbox_Model_SalesRule_Validator</validator>
+                    <rule_condition_combine>Bonusbox_Bonusbox_Model_SalesRule_Rule_Condition_Combine</rule_condition_combine>
+                </rewrite>
+            </salesrule>
+        </models>
+        <helpers>
+            <bonusbox>
+                <class>Bonusbox_Bonusbox_Helper</class>		
+            </bonusbox>
+        </helpers>
+        <blocks>
+            <bonusbox>
+                <class>Bonusbox_Bonusbox_Block</class>
+            </bonusbox>
+        </blocks>
+
+        <resources>
+            <bonusbox_setup>
+                <setup>
+                    <module>Bonusbox_Bonusbox</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bonusbox_setup>
+        </resources>
+
+        <events>
+        <!--
+            BONBOX-12: Due to Magento EEs CustomerSegment module all additional
+                       conditions are deleted and replaced.
+            
+            <salesrule_rule_condition_combine>
+                <observers>
+                    <bonusbox>
+                        <class>bonusbox/salesRule_condition_bonusbox</class>
+                        <method>addConditions</method>
+                    </bonusbox>
+                </observers>
+            </salesrule_rule_condition_combine>
+        -->
+        	
+            <sales_model_service_quote_submit_after>
+                <observers>
+                    <bonusbox>
+                        <class>bonusbox/sales_observer</class>
+                        <method>forwardOrder</method>
+                    </bonusbox>
+                </observers>
+            </sales_model_service_quote_submit_after>
+        </events>
+    </global>
+	
+    <frontend>
+        <routers>
+            <bonusbox_test>
+                <use>standard</use>
+                <args>
+                    <module>Bonusbox_Bonusbox</module>
+                    <frontName>bonusbox</frontName>
+                </args>
+            </bonusbox_test>
+        </routers>
+		
+        <layout>
+            <updates>
+                <bonusbox>
+                    <file>bonusbox.xml</file>
+                </bonusbox>
+            </updates>
+        </layout>
+    </frontend>
+	
+    <adminhtml>
+        <translate>
+            <modules>
+                <bonusbox_bonusbox>
+                    <files>
+                        <default>bonusbox_admin.csv</default>
+                    </files>
+                </bonusbox_bonusbox>
+            </modules>
+        </translate>
+    </adminhtml>
+	
+    <default>
+        <bonusbox>        
+            <general>
+                <enabled>0</enabled>
+                <live>0</live>
+                <live_public_key />
+                <live_secret_key />
+                <test_public_key />
+                <test_secret_key />
+                <url><![CDATA[https://api.bonusbox.me/]]></url>
+                <accept_header><![CDATA[application/json,application/vnd.api;ver=1]]></accept_header>
+                <debug_email><![CDATA[no-reply@bonusbox.me]]></debug_email>
+            </general>
+            <success_page>
+                <style_url>css/bonusbox.css</style_url>
+            </success_page>
+        </bonusbox>
+    </default> 
+</config>
